@@ -7,9 +7,5 @@ import rharj.com.catching.utils.AppConstant
 
 class Network{
 
-    val retrofit = Retrofit.Builder()
-            .baseUrl(AppConstant.BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(CatchingClient(MyApplication.applicationContext()))
-            .build()
+
 }
