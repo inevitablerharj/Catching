@@ -12,6 +12,8 @@ import rharj.com.catching.utils.AppConstant
 
 class MainActivity : AppCompatActivity() {
 
+    private var responseData: ResponseData? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -29,7 +31,8 @@ class MainActivity : AppCompatActivity() {
         call.enqueue(object : Callback<ResponseData> {
             override fun onResponse(call: Call<ResponseData>, response: retrofit2.Response<ResponseData>?) {
                 if(response !=null){
-
+                    responseData = response.body()
+                    result.setText(responseData?.coord.toString())
                 }
 
             }
@@ -38,5 +41,9 @@ class MainActivity : AppCompatActivity() {
 
             }
         })
+    }
+
+    fun showData(){
+
     }
 }
